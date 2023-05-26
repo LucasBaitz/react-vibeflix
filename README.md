@@ -11,6 +11,7 @@ A UI VibeFlix foi criada para ser o Front-End/UI onde é possível consumir a AP
 - React.js
 - Tailwind
 - Vite
+- Axios
 
 ## Pré-requisitos
 

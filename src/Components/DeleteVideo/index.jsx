@@ -10,7 +10,6 @@ const DeleteVideo = ({videoTitle, changeModalState, onDelete }) => {
     const confirmDelete = () => {
         handleModalState();
         onDelete();
-
     }
 
     return (
@@ -26,7 +25,7 @@ const DeleteVideo = ({videoTitle, changeModalState, onDelete }) => {
 DeleteVideo.propTypes = {
     videoTitle: PropTypes.string.isRequired,
     changeModalState: PropTypes.func.isRequired,
-    onDelete: PropTypes.func.isRequired
+    onDelete: PropTypes.func.isRequired,
 };
 
 export default DeleteVideo;

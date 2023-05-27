@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 
 
-const EditVideo = ({ selectedTitle, selectedUrl, selectedDesc, selectedId }) => {
+const EditVideo = ({ selectedTitle, selectedUrl, selectedDesc, selectedId, newRequest }) => {
 
     const apiUrl = "https://localhost:7229/api/Videos"
 
@@ -26,6 +26,7 @@ const EditVideo = ({ selectedTitle, selectedUrl, selectedDesc, selectedId }) => 
         e.preventDefault();
         console.log(newVideoData)
         await axios.put(`${apiUrl}/${Number(selectedId)}`, newVideoData).then(console.log(newVideoData))
+        newRequest();
       }
     
     return (
@@ -90,6 +91,7 @@ EditVideo.propTypes = {
     selectedUrl: PropTypes.string.isRequired,
     selectedTitle: PropTypes.string.isRequired,
     selectedDesc: PropTypes.string.isRequired,
+    newRequest: PropTypes.func.isRequired
 };
 
 

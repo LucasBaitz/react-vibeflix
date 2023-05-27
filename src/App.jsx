@@ -45,8 +45,8 @@ function App() {
     } catch (error) {
       console.error("Error on this task:", error);
     }
+    requestGet();
   };
-  
   
   useEffect(() => {
     requestGet();
@@ -67,7 +67,7 @@ function App() {
                               <h1 className='text-center text-5xl text-white font-semibold p-10'>No videos avaliable</h1> 
         }
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 p-5 pt-10 min-w-lg'>
-            {apiData.map(video => <VideoDisplay key={video.id} title={video.title} videoUrl={video.url} description={video.description} onDelete={requestDelete} deleteId={video.id} />)}
+            {apiData.map(video => <VideoDisplay key={video.id} title={video.title} videoUrl={video.url} description={video.description} onDelete={requestDelete} deleteId={video.id} newRequest={requestGet} />)}
         </div>
       </div>
     </>

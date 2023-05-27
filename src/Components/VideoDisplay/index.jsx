@@ -7,7 +7,7 @@ import { useState } from "react";
 import DeleteVideo from "../DeleteVideo";
 import EditVideo from "../EditVideo";
 
-const VideoDisplay = ({ videoUrl, title, description, onDelete, deleteId }) => {
+const VideoDisplay = ({ videoUrl, title, description, onDelete, deleteId, newRequest }) => {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
@@ -53,6 +53,7 @@ const VideoDisplay = ({ videoUrl, title, description, onDelete, deleteId }) => {
           videoTitle={title}
           changeModalState={handleDeleteModal}
           onDelete={deleteHandler}
+          newRequest={newRequest}
         />
       </Modal>
       <Modal modalTitle="Editing!" isOpen={isEditModalOpen} onClose={handleEditModal} >
@@ -62,6 +63,7 @@ const VideoDisplay = ({ videoUrl, title, description, onDelete, deleteId }) => {
           selectedTitle={title}
           selectedDesc={description}
           selectedId={deleteId}
+          newRequest={newRequest}
         />
       </Modal>
     </div>
@@ -74,6 +76,7 @@ VideoDisplay.propTypes = {
   description: PropTypes.string.isRequired,
   onDelete: PropTypes.func.isRequired,
   deleteId: PropTypes.number.isRequired,
+  newRequest: PropTypes.func.isRequired,
 };
 
 export default VideoDisplay;
